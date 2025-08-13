@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="h1" style="color: blue;">Hello World</h1>
+    <div class="box" style="height: 200px;width: 200px;background-color: red;">
+
+        <p style="color: black; text-align: center;"> Goodmorning</p>
+         <h2 style="color: black; text-align: center;"> morning</h2>
+    </div>
+<button onclick="myfunction()" style="margin-top: 20px; height: 30px; width: 100px; background-color:white; margin-left: 30px;">click</button>
+<script>
+         let toggle=true;
+    function myfunction(){
+       
+        if(toggle){
+
+ document.getElementById("h1").style.color="red"
+ document.getElementsByClassName("box")[0].style.backgroundColor="green";
+  document.getElementsByTagName("h2")[0].style.display="none";
+
+
+        }
+        else{
+             document.getElementsByTagName("h2")[0].style.display="block";
+ document.getElementById("h1").style.color="blue"
+ document.getElementsByClassName("box")[0].style.backgroundColor="red";
+
+
+        }
+ toggle=!toggle;
+
+    }
+</script>
+</body>
+</html>

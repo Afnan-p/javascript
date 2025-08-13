@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Odd Number Sum</title>
+</head>
+<body>
+    <script>
+       
+        let limit = parseInt(prompt("Enter a limit:"));
+        let sum = 0;
+
+        for (let i = 1; i <= limit; i++) {
+            if (i % 2 !== 0) { 
+                sum += i;
+            }
+        }
+        document.write("The sum of all odd numbers up to", limit, "is:", sum);
+    </script>
+</body>
+</html>

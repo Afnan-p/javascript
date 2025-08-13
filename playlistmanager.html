@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>PLAYLIST</h1>
+    <p id="song"></p>
+    <p id="song1"></p>
+    <p id="song2"></p>
+    <p id="song3"></p>
+    <p id="song4"></p>
+    <p id="song5"></p>
+    <p id="playlist2"></p>
+   <p id="newplaylist"></p>
+    <p id="flat"></p>
+        <p id="add"></p>
+                <p id="remove"></p>
+
+
+
+
+
+    
+    <script>
+        const palylist =["song1","song2","song3","song4","song5"];
+        document.getElementById("song").innerHTML= "Orginal Playlist: "+palylist;
+        palylist.push("Song6");
+        document.getElementById("song1").innerHTML= "Add a Song: "+ palylist;
+        palylist.pop();
+       document.getElementById("song2").innerHTML= "Remove a Song: "+ palylist;
+       let size = palylist.length;
+     document.getElementById("song3").innerHTML= "Size of playlist: "+ size;
+       let access=palylist[0];
+     document.getElementById("song4").innerHTML= "Access first: "+ access;
+       access=palylist[4];
+     document.getElementById("song5").innerHTML= "Access last: "+ access;
+     const playlist2=["song6","song7","song8"];
+     document.getElementById("playlist2").innerHTML=" playlist2: "+playlist2;
+      const Newplaylist=palylist.concat(playlist2); 
+        document.getElementById("newplaylist").innerHTML="New playlist: "+Newplaylist;
+        const flat=[["song1"],["song2"],["song3"]];
+        const newArr = flat.flat();
+     document.getElementById("flat").innerHTML="flat playlist: "+flat;
+         const removesong=palylist.slice(2);
+     document.getElementById("add").innerHTML="remove songs: "+removesong;
+
+     const addsong=Newplaylist.splice(0,2,"SONG1","SONG2");
+     document.getElementById("remove").innerHTML="add songs: "+Newplaylist;
+
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

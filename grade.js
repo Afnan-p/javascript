@@ -1,0 +1,23 @@
+   
+        let totalmark=parseFloat(prompt("Enter the total mark persentage:"));
+        
+
+        if(totalmark>90){
+            console.log("A");
+    
+        }else if(totalmark >=80 && totalmark<=89){
+            console.log("B");
+        }else if(totalmark >=70 && totalmark<=79){
+            console.log("C");
+         }else if(totalmark>=60 && totalmark<=69){
+            console.log("D");
+            
+         }else if(totalmark>=50 && totalmark<=59){
+            console.log("E");
+            
+         }else if(totalmark <50 ){
+            console.log("Failed"); 
+         }else{
+            console.log("invalid");
+            
+         }
