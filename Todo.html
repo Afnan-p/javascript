@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="main">
+    <div class="body">
+        <h1 style="font-weight: bold;color: black; margin-top: -20px;">To‑Do List</h1>
+        <label style="color: WHITE;margin-left: -20PX;" for="">ADD ITEMS :</label>
+        <input id="text" style="height: 30px;">
+        <button style="height: 35px; width:100px; margin-top: 20px;" onclick="tudo()">SUBMIT</button>
+
+    </div>
+    <script>
+     function tudo(){
+        let value=document.getElementById("text").value
+        let para=document.createElement('p')
+        // para.style.fontSize="20px"
+        // para.style.height="30px"
+        let del=document.createElement('button')
+        let deltext=document.createTextNode('DELETE')
+        del.style.backgroundColor="white"
+        del.style.color="black";
+        del.style.borderRadius="3px";
+        del.style.marginLeft="20px"
+        del.style.height="30px" 
+
+
+
+
+
+        del.appendChild(deltext)
+        para.appendChild(del)
+        let t=document.createTextNode(value)
+        para.style.fontSize="20px"
+        para.style.height="30px"
+        para.appendChild(t)
+        document.body.appendChild(para)
+
+            document.querySelector('.body').appendChild(para);
+
+        del.addEventListener('click',()=>{
+            para.remove()
+        })   
+     }
+         
+        
+    </script>    
+</body>
+</html>
+<style>
+    .main{
+       
+        color: rgb(40, 6, 6);
+        
+        height:auto;
+        width:500px;
+        text-align: center; 
+        display: flex;
+        justify-content: center;
+        margin-left: 30%;
+      
+      
+        
+    }
+    .body{
+        padding: 70px;
+        margin-top: 50px;
+        background-color: rgb(171, 13, 29);
+
+        border-radius: 20px;
+    }
+</style>

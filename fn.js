@@ -3,4 +3,6 @@ function addNumbers(a, b) {
         return "Invalid input: Both inputs must be numbers.";
     }
     return a + b;
+    addNumbers(10,10);
 }
+

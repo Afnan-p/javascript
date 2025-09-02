@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple To‑Do List</title>
+  <style>
+    :root { font-family: system-ui, Arial, sans-serif; }
+    body { margin: 0; background:#0f172a; color:#e2e8f0; display:grid; place-items:center; min-height:100svh; }
+    .app { width: min(92vw, 420px); background:#111827; padding:20px 18px; border-radius:16px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+    h1 { margin: 6px 4px 14px; font-size:1.3rem; letter-spacing:.4px; }
+    .row { display:flex; gap:8px; }
+    input[type="text"]{ flex:1; padding:10px 12px; border-radius:10px; border:1px solid #374151; background:#0b1220; color:#e5e7eb; outline:none; }
+    input::placeholder{ color:#9ca3af; }
+    button { padding:10px 14px; border:0; border-radius:10px; cursor:pointer; background:#2563eb; color:white; font-weight:600; }
+    button:active { transform: translateY(1px); }
+    ul { list-style:none; padding:0; margin:14px 0 0; }
+    li { display:flex; align-items:center; gap:10px; padding:10px 8px; border:1px solid #1f2937; border-radius:12px; margin-bottom:10px; background:#0b1220; }
+    li input[type="checkbox"] { width:18px; height:18px; }
+    .text { flex:1; word-break: break-word; }
+    .completed { text-decoration: line-through; opacity:.7; }
+    .del { background:#ef4444; }
+    .empty { text-align:center; color:#94a3b8; margin:14px 0; font-size:.95rem; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>✅ To‑Do List</h1>
+    <div class="row">
+      <input id="taskInput" type="text" placeholder="Add a new task…" autofocus />
+      <button id="addBtn" title="Add task">Add</button>
+    </div>
+
+    <p id="emptyMsg" class="empty">No tasks yet. Add your first one!</p>
+    <ul id="list"></ul>
+  </div>
+
+  <script>
+    const input = document.getElementById('taskInput');
+    const addBtn = document.getElementById('addBtn');
+    const list = document.getElementById('list');
+    const emptyMsg = document.getElementById('emptyMsg');
+
+    function updateEmptyState(){
+      emptyMsg.style.display = list.children.length ? 'none' : 'block';
+    }
+
+    function addTask(){
+      const text = input.value.trim();
+      if(!text) return;
+
+      const li = document.createElement('li');
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.addEventListener('change', () => {
+        span.classList.toggle('completed', checkbox.checked);
+      });
+
+      const span = document.createElement('span');
+      span.className = 'text';
+      span.textContent = text;
+
+      const del = document.createElement('button');
+      del.textContent = 'Delete';
+      del.className = 'del';
+      del.addEventListener('click', () => {
+        li.remove();
+        updateEmptyState();
+      });
+
+      li.append(checkbox, span, del);
+      list.prepend(li);
+
+      input.value = '';
+      input.focus();
+      updateEmptyState();
+    }
+
+    addBtn.addEventListener('click', addTask);
+    input.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter') addTask();
+    });
+
+    updateEmptyState();
+  </script>
+</body>
+</html>
